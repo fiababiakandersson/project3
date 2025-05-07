@@ -43,7 +43,7 @@ header {
       flex-direction: column;
       align-items: flex-start;
       display: flex;
-      margin-top: 4px;
+      margin-top: 2px;
       gap: 2px;
 
       p:nth-child(1) {
