@@ -28,7 +28,14 @@ export default {
 </script>
 
 <template>
-  <div style="display: flex; align-items: end; justify-content: space-between">
+  <div
+    style="
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin: 2.5rem 2rem 0 2rem;
+    "
+  >
     <div style="display: flex; flex-direction: column; gap: 20px">
       <div style="display: flex; gap: 32px">
         <div
@@ -40,7 +47,7 @@ export default {
           {{ job.title }}
         </div>
       </div>
-      <div style="display: flex; gap: 35px">
+      <div style="display: flex; gap: 32px">
         <div
           v-for="info in availabilityInfo"
           :key="info.imgUrl"
