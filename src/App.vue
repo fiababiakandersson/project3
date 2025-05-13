@@ -7,7 +7,9 @@ import Info from './components/Info.vue'
 
 <template>
   <Header />
-  <Info />
-  <!-- <Table /> -->
-  <Home />
+  <div style="margin: 2rem">
+    <Info />
+    <!-- <Table /> -->
+    <Home />
+  </div>
 </template>
