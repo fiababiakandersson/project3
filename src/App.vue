@@ -2,12 +2,13 @@
 import Header from './components/Header.vue'
 import Home from './components/Home.vue'
 // import Info from './components/Info.vue'
-// import Table from './components/Table.vue'
+import Table from './components/Table.vue'
+import TableCell from './components/TableCell.vue'
 </script>
 
 <template>
   <Header />
-  <!-- <Info />
-  <Table /> -->
+  <!-- <Info />-->
+  <Table />
   <Home />
 </template>
