@@ -4,7 +4,7 @@
   <header>
     <h1>Svenssons Hantverk AB</h1>
     <div>
-      <img src="./../../public/pfp.png" alt="profile picture" />
+      <img src="./../../public/icons/pfp.png" alt="profile picture" />
       <div>
         <p>Namn Namnsson</p>
         <p>Admin</p>
