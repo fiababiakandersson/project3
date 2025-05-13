@@ -124,6 +124,7 @@ td {
     padding: 8px;
     text-align: center;
     color: #949098;
+    font-size: small;
 }
 
 .booked {
@@ -152,4 +153,8 @@ tbody tr.even-row {
     color: inherit;
 }
 
+/* the weekend cells to stand out more in the worker rows */
+/* :deep(.weekend) {
+    background-color: #f0f0f0;
+} */
 </style>
