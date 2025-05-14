@@ -5,11 +5,11 @@ export default {
   data() {
     return {
       jobs: [
-        { title: 'Snickare', imgUrl: '../../public/icons/snickare.png' },
-        { title: 'Elektriker', imgUrl: '../../public/icons/elektriker.png' },
-        { title: 'Rörmockare', imgUrl: '../../public/icons/rörmockare.png' },
-        { title: 'Målare', imgUrl: '../../public/icons/målare.png' },
-        { title: 'Murare', imgUrl: '../../public/icons/murare.png' },
+        { title: 'Carpenter', imgUrl: '../../public/icons/snickare.png' },
+        { title: 'Electrician', imgUrl: '../../public/icons/elektriker.png' },
+        { title: 'Plumber', imgUrl: '../../public/icons/rörmockare.png' },
+        { title: 'Painter', imgUrl: '../../public/icons/målare.png' },
+        { title: 'Mason', imgUrl: '../../public/icons/murare.png' },
       ],
       availabilityInfo: [
         { title: 'Tillgänglig', imgUrl: '../../public/icons/tillgänglig.png' },

@@ -1,15 +1,60 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import TableCell from './TableCell.vue';
 
-// Sample data: 28 workers
-const workers = ref(
-    Array.from({ length: 28 }, (_, i) => ({
-        id: i + 1,
-        name: `Worker ${i + 1}`,
-        schedule: Array(31).fill(false) 
-    }))
-);
+const workers = ref([]);
+
+// Fetch data from API
+const fetchData = async () => {
+    try {
+        const response = await fetch('https://yrgo-web-services.netlify.app/bookings?start=2025-04-07&end=2025-05-02');
+        const data = await response.json();
+
+        // Process the API data into our table format
+        workers.value = data.map(worker => ({
+            id: worker.name,
+            name: worker.name,
+            professions: worker.professions,
+            bookings: worker.bookings
+        }));
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
+
+onMounted(() => {
+    fetchData();
+});
+
+// Helper functions to determine cell status
+const getCellStatus = (worker, dayIndex) => {
+    const targetDate = new Date(2025, 4, 1);
+    targetDate.setDate(targetDate.getDate() + dayIndex);
+
+    const booking = worker.bookings.find(b => {
+        const fromDate = new Date(b.from);
+        const toDate = new Date(b.to);
+        return targetDate >= fromDate && targetDate <= toDate;
+    });
+
+    if (!booking) return { status: 'available' };
+
+    return {
+        status: booking.status.toLowerCase(),
+        percentage: booking.percentage,
+        activity: booking.activity
+    };
+};
+
+// // Sample data: 28 workers
+// const workers = ref(
+//     Array.from({ length: 28 }, (_, i) => ({
+//         id: i + 1,
+//         name: `Worker ${i + 1}`,
+//         schedule: Array(31).fill(false)
+//     }))
+// );
 
 
 // Generate week headers (e.g., "v.1", "v.2", etc.)
@@ -27,17 +72,19 @@ const getDayNumbers = () => {
 // Swedish weekday abbreviations
 const getWeekdayNames = () => {
     const days = [];
-    const today = new Date();
-    today.setDate(today.getDate() - today.getDay() + 1); // Start from Monday
-    
-    // Swedish weekday abbreviations
-    const swedishDays = ['Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör', 'Sön'];
-    
-    for (let i = 0; i < 31; i++) {
-        // Use modulo to cycle through the days of the week (0-6)
-        days.push(swedishDays[i % 7]);
+    const today = new Date(2025, 4, 1);
+    today.setDate(today.getDate() - today.getDay() + 1);
+
+    for (let i = -1; i < 30; i++) {
+        const day = new Date(today);
+        day.setDate(day.getDate() + i);
+        const dayOfWeek = day.getDay();
+        // Swedish weekday abbreviations
+        const swedishDays = ['Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör', 'Sön'];
+        days.push(swedishDays[dayOfWeek]);
     }
-    
+
+
     return days;
 };
 
@@ -70,7 +117,8 @@ const isWeekendDay = (dayName) => {
                     </th>
                 </tr>
                 <tr>
-                    <th v-for="(day, index) in getWeekdayNames()" :key="index" :class="{ 'weekend': isWeekendDay(day) }">
+                    <th v-for="(day, index) in getWeekdayNames()" :key="index"
+                        :class="{ 'weekend': isWeekendDay(day) }">
                         {{ day }}
                     </th>
                 </tr>
@@ -78,14 +126,8 @@ const isWeekendDay = (dayName) => {
             <tbody>
                 <tr v-for="(worker, index) in workers" :key="worker.id" :class="{ 'even-row': index % 2 === 1 }">
                     <td>{{ worker.name }}</td>
-                    <TableCell 
-                        v-for="(booked, dayIndex) in worker.schedule" 
-                        :key="dayIndex" 
-                        :worker="worker"
-                        :day-index="dayIndex" 
-                        :booked="booked"
-                        :is-weekend="isWeekend(dayIndex + 1)"
-                    />
+                    <TableCell v-for="(day, dayIndex) in getDayNumbers()"
+                        :activity="getCellStatus(worker, dayIndex).activity" :is-weekend="isWeekend(dayIndex + 1)" />
                 </tr>
             </tbody>
         </table>
@@ -108,7 +150,7 @@ th {
     background-color: #ffffff;
     position: sticky;
     top: 0;
-    text-align: left; 
+    text-align: left;
     padding-left: 15px;
 }
 
@@ -138,7 +180,7 @@ td {
 
 th.weekend,
 td.weekend {
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
     color: #949098;
 }
 

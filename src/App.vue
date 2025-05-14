@@ -8,7 +8,7 @@ import TableCell from './components/TableCell.vue'
 
 <template>
   <Header />
-  <div style="margin: 2rem 1.5rem .5rem 1.5rem ">
+  <div style="margin: 2rem 1.5rem .4rem 1.5rem ">
     <Info />
   </div>
   <Home />
