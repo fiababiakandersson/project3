@@ -7,11 +7,11 @@ export default {
   data() {
     return {
       data: null, // holds fetched api data
-      workers: Array.from({ length: 28 }, (_, i) => ({
-        id: i + 1,
-        name: `Worker ${i + 1}`,
-        schedule: Array(31).fill(false),
-      })),
+      //   workers: Array.from({ length: 28 }, (_, i) => ({
+      //     id: i + 1,
+      //     name: `Worker ${i + 1}`,
+      //     schedule: Array(31).fill(false),
+      //   })),
     }
   },
 
@@ -83,7 +83,7 @@ export default {
       </thead>
       <tbody>
         <tr
-          v-for="(worker, index) in workers"
+          v-for="(worker, index) in data"
           :key="worker.id"
           :class="{ 'even-row': index % 2 === 1 }"
         >
