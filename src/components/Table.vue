@@ -87,7 +87,16 @@ export default {
           :key="worker.id"
           :class="{ 'even-row': index % 2 === 1 }"
         >
-          <td>{{ worker.name }}</td>
+          <td>
+            {{ worker.name }}
+            <img
+              v-for="job in worker.professions"
+              :src="job === "
+              :alt="info.title"
+              style="width: 20px; height: 20px"
+            />
+          </td>
+
           <TableCell
             v-for="(booked, dayIndex) in worker.schedule"
             :key="dayIndex"
