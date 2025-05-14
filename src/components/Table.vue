@@ -87,14 +87,16 @@ export default {
           :key="worker.id"
           :class="{ 'even-row': index % 2 === 1 }"
         >
-          <td>
+          <td style="display: flex; align-items: center; gap: 5px; justify-content: space-between">
             {{ worker.name }}
-            <img
-              v-for="job in worker.professions"
-              :src="job === "
-              :alt="info.title"
-              style="width: 20px; height: 20px"
-            />
+            <div style="display: flex; gap: 9px">
+              <img
+                v-for="job in worker.professions"
+                :src="`/icons/${job.toLowerCase()}.png`"
+                :alt="job"
+                style="width: 20px; height: 20px"
+              />
+            </div>
           </td>
 
           <TableCell
