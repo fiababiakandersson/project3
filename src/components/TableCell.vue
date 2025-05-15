@@ -2,23 +2,39 @@
 export default {
   props: {
     worker: {
-      activity: String,
-      percentage: Number,
-      status: String,
-      from: String,
-      to: String,
+      type: Object,
+      required: true,
     },
-    isWeekend: Boolean,
-    isEvenRow: Boolean,
+    isWeekendDay: {
+      type: Boolean,
+      default: false,
+    },
+    dayIndex: {
+      type: Number,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      url: '',
+    }
+  },
+  created() {
+    const baseUrl = '/icons/bookingsIcons/'
+
+    if (!this.isWeekendDay) {
+      this.url = baseUrl + 'tillgänglig.png'
+    } else {
+      this.url = ''
+    }
   },
 }
 </script>
 
 <template>
-  <td
-    :class="['status-indicator', status, jobType, { weekend: isWeekend, 'even-row': isEvenRow }]"
-    :title="worker.activity"
-  ></td>
+  <td :title="worker.activity">
+    <img :src="url" :alt="worker.activity" width="20" height="20" />
+  </td>
 </template>
 
 <style>

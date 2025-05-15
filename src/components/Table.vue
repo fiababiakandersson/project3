@@ -20,7 +20,6 @@ export default {
       const res = await fetch('https://yrgo-web-services.netlify.app/bookings')
       const json = await res.json()
       this.data = json
-      console.log('Fetched data:', this.data)
     } catch (error) {
       console.error('Failed to fetch:', error)
     }
@@ -82,26 +81,29 @@ export default {
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(worker, index) in data"
-          :key="worker.id"
-          :class="{ 'even-row': index % 2 === 1 }"
-        >
+        <tr v-for="(worker, i) in data" :key="i" :class="{ 'even-row': i % 2 === 1 }">
           <td style="display: flex; align-items: center; gap: 5px; justify-content: space-between">
             {{ worker.name }}
             <div style="display: flex; gap: 9px">
               <img
-                v-for="job in worker.professions"
+                v-for="(job, idx) in worker.professions"
+                :key="`${worker.id}-${job}-${idx}`"
                 :src="`/icons/${job.toLowerCase()}.png`"
+                @error="(e) => (e.target.src = '/icons/bookingsIcons/frånvaro.png')"
                 :alt="job"
-                style="width: 20px; height: 20px"
+                width="20"
+                height="20"
               />
             </div>
           </td>
 
-          <td v-for="day in getDayNumbers()" :key="day" :class="{ weekend: isWeekend(day) }">
-            <!-- <TableCell :key="i" :worker="worker" :day-index="i" :is-weekend="isWeekend(i + 1)" /> -->
-          </td>
+          <TableCell
+            v-for="day in getDayNumbers()"
+            :worker="worker"
+            :isWeekendDay="isWeekend(day)"
+            :dayIndex="day - 1"
+            :class="{ weekend: isWeekend(day) }"
+          />
         </tr>
       </tbody>
     </table>
@@ -153,7 +155,8 @@ td {
 
 th.weekend,
 td.weekend {
-  background-color: #f0f0f0;
+  background-color: #e0e0e0;
+  border-color: #ccd0d0;
   color: #949098;
 }
 
