@@ -100,12 +100,11 @@ export default {
           </td>
 
           <TableCell
-            v-for="(booked, dayIndex) in worker.schedule"
-            :key="dayIndex"
+            v-for="(_, i) in worker.bookings"
+            :key="i"
             :worker="worker"
-            :day-index="dayIndex"
-            :booked="booked"
-            :is-weekend="isWeekend(dayIndex + 1)"
+            :day-index="i"
+            :is-weekend="isWeekend(i + 1)"
           />
         </tr>
       </tbody>

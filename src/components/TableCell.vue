@@ -1,9 +1,13 @@
 <script>
 export default {
   props: {
-    status: String,
-    jobType: String,
-    statusText: String,
+    worker: {
+      activity: String,
+      percentage: Number,
+      status: String,
+      from: String,
+      to: String,
+    },
     isWeekend: Boolean,
     isEvenRow: Boolean,
   },
@@ -13,9 +17,10 @@ export default {
 <template>
   <td
     :class="['status-indicator', status, jobType, { weekend: isWeekend, 'even-row': isEvenRow }]"
-    :title="statusText"
+    :title="worker.activity"
   ></td>
 </template>
+
 <style>
 /* Table styling */
 td {
