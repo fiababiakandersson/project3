@@ -12,12 +12,18 @@ export default {
         { title: 'Murare', imgUrl: '../../public/icons/mason.png' },
       ],
       availabilityInfo: [
-        { title: 'Tillgänglig', imgUrl: '../../public/icons/tillgänglig.png' },
-        { title: 'Frånvaro', imgUrl: '../../public/icons/frånvaro.png' },
-        { title: '100% bokad', imgUrl: '../../public/icons/fullyBooked.png' },
-        { title: '50% bokad', imgUrl: '../../public/icons/halfBooked.png' },
-        { title: '100% preliminärt bokad', imgUrl: '../../public/icons/preliminaryBooked.png' },
-        { title: '50% preliminärt bokad', imgUrl: '../../public/icons/halfPreliminaryBooked.png' },
+        { title: 'Tillgänglig', imgUrl: '../../public/icons/bookingsIcons/tillgänglig.png' },
+        { title: 'Frånvaro', imgUrl: '../../public/icons/bookingsIcons/frånvaro.png' },
+        { title: '100% bokad', imgUrl: '../../public/icons/bookingsIcons/fullyBooked.png' },
+        { title: '50% bokad', imgUrl: '../../public/icons/bookingsIcons/halfBooked.png' },
+        {
+          title: '100% preliminärt bokad',
+          imgUrl: '../../public/icons/bookingsIcons/preliminaryBooked.png',
+        },
+        {
+          title: '50% preliminärt bokad',
+          imgUrl: '../../public/icons/bookingsIcons/halfPreliminaryBooked.png',
+        },
       ],
     }
   },
