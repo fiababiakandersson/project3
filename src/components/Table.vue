@@ -99,13 +99,9 @@ export default {
             </div>
           </td>
 
-          <TableCell
-            v-for="(_, i) in worker.bookings"
-            :key="i"
-            :worker="worker"
-            :day-index="i"
-            :is-weekend="isWeekend(i + 1)"
-          />
+          <td v-for="day in getDayNumbers()" :key="day" :class="{ weekend: isWeekend(day) }">
+            <!-- <TableCell :key="i" :worker="worker" :day-index="i" :is-weekend="isWeekend(i + 1)" /> -->
+          </td>
         </tr>
       </tbody>
     </table>
