@@ -22,7 +22,13 @@ export default {
   created() {
     const baseUrl = '/icons/bookingsIcons/'
 
-    this.url = baseUrl + 'tillgänglig.png'
+    this.worker.bookings.forEach((booking) => {
+      if (booking.status == 'Booked' && booking.percentage == 100) {
+        this.url = baseUrl + booking.activity.toLowerCase() + '100.png'
+      } else {
+        this.url = baseUrl + 'tillgänglig.png'
+      }
+    })
   },
 }
 </script>
