@@ -22,18 +22,14 @@ export default {
   created() {
     const baseUrl = '/icons/bookingsIcons/'
 
-    if (!this.isWeekendDay) {
-      this.url = baseUrl + 'tillgänglig.png'
-    } else {
-      this.url = ''
-    }
+    this.url = baseUrl + 'tillgänglig.png'
   },
 }
 </script>
 
 <template>
   <td :title="worker.activity">
-    <img :src="url" :alt="worker.activity" width="20" height="20" />
+    <img v-if="!this.isWeekendDay" :src="url" :alt="worker.activity" width="20" height="20" />
   </td>
 </template>
 
