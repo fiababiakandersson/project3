@@ -25,6 +25,8 @@ export default {
     this.worker.bookings.forEach((booking) => {
       if (booking.status == 'Booked' && booking.percentage == 100) {
         this.url = baseUrl + booking.activity.toLowerCase() + '100.png'
+      } else if (booking.status == 'Absent') {
+        this.url = baseUrl + 'absent.png'
       } else {
         this.url = baseUrl + 'tillgänglig.png'
       }
