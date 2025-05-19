@@ -27,6 +27,12 @@ export default {
         this.url = baseUrl + booking.activity.toLowerCase() + '100.png'
       } else if (booking.status == 'Absent') {
         this.url = baseUrl + 'absent.png'
+      } else if (booking.status == 'Preliminary') {
+        if (booking.percentage == 100) {
+          this.url = baseUrl + booking.activity.toLowerCase() + 'Prel100.png'
+        } else if (booking.percentage == 50) {
+          this.url = baseUrl + booking.activity.toLowerCase() + 'Prel50.png'
+        }
       } else {
         this.url = baseUrl + 'tillgänglig.png'
       }

@@ -82,7 +82,15 @@ export default {
       </thead>
       <tbody>
         <tr v-for="(worker, i) in data" :key="i" :class="{ 'even-row': i % 2 === 1 }">
-          <td style="display: flex; align-items: center; gap: 5px; justify-content: space-between">
+          <td
+            style="
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              justify-content: space-between;
+              border-bottom: 0;
+            "
+          >
             {{ worker.name }}
             <div style="display: flex; gap: 9px">
               <img

@@ -13,7 +13,7 @@ export default {
       ],
       availabilityInfo: [
         { title: 'Tillgänglig', imgUrl: '../../public/icons/bookingsIcons/tillgänglig.png' },
-        { title: 'Frånvaro', imgUrl: '../../public/icons/bookingsIcons/frånvaro.png' },
+        { title: 'Frånvaro', imgUrl: '../../public/icons/bookingsIcons/absent.png' },
         { title: '100% bokad', imgUrl: '../../public/icons/bookingsIcons/fullyBooked.png' },
         { title: '50% bokad', imgUrl: '../../public/icons/bookingsIcons/halfBooked.png' },
         {
