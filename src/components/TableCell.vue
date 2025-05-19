@@ -42,7 +42,7 @@ export default {
 </script>
 
 <template>
-  <td :title="worker.activity">
+  <td :title="worker.activity" style="width: 50px !important; height: 40px !important">
     <img v-if="!this.isWeekendDay" :src="url" :alt="worker.activity" width="20" height="20" />
   </td>
 </template>

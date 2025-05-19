@@ -81,16 +81,13 @@ export default {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(worker, i) in data" :key="i" :class="{ 'even-row': i % 2 === 1 }">
-          <td
-            style="
-              display: flex;
-              align-items: center;
-              gap: 5px;
-              justify-content: space-between;
-              border-bottom: 0;
-            "
-          >
+        <tr
+          v-for="(worker, i) in data"
+          :key="i"
+          :class="{ 'even-row': i % 2 === 1 }"
+          style="max-height: 40px"
+        >
+          <td class="table-row">
             {{ worker.name }}
             <div style="display: flex; gap: 9px">
               <img
@@ -136,6 +133,19 @@ th {
   top: 0;
   text-align: left;
   padding-left: 15px;
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-between;
+  border-bottom: 0;
+  max-height: 40px;
+}
+
+table:last-child {
+  border-bottom: 1px solid #ccd0d0;
 }
 
 /* Target just the first row of week headers specifically */
