@@ -20,6 +20,9 @@ export default {
     }
   },
   created() {
+    // check booking and give correct icon url based on status/percentage,
+    // if dayIndex does'nt fall in between the days between to-from in api =>
+    // give the icon tillgänglig status
     const baseUrl = '/icons/bookingsIcons/'
 
     this.worker.bookings.forEach((booking) => {
@@ -37,12 +40,23 @@ export default {
         this.url = baseUrl + 'tillgänglig.png'
       }
     })
+
+    this.worker.bookings.some((booking) => {
+      const fromDay = new Date(booking.from).getDate()
+      const toDay = new Date(booking.to).getDate()
+      if (this.dayIndex >= fromDay && this.dayIndex <= toDay) {
+        this.url = baseUrl + 'tillgänglig.png'
+      }
+    })
+  },
+  methods: {
+    isCorrectDayNum() {},
   },
 }
 </script>
 
 <template>
-  <td :title="worker.activity" style="width: 50px !important; height: 40px !important">
+  <td :title="worker.name" style="width: 50px !important; height: 40px !important">
     <img v-if="!this.isWeekendDay" :src="url" :alt="worker.activity" width="20" height="20" />
   </td>
 </template>

@@ -106,7 +106,7 @@ export default {
             v-for="day in getDayNumbers()"
             :worker="worker"
             :isWeekendDay="isWeekend(day)"
-            :dayIndex="day - 1"
+            :dayIndex="day"
             :class="{ weekend: isWeekend(day) }"
           />
         </tr>
