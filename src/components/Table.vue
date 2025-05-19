@@ -119,6 +119,25 @@ export default {
 .booking-app {
   overflow-x: auto;
   padding: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.booking-app table {
+  table-layout: fixed;
+  width: 100%;
+  max-width: 1500px;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.booking-app table th:first-child,
+.booking-app table td:first-child {
+  width: 200px;
+  min-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 table {
