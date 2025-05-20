@@ -5,24 +5,24 @@ export default {
   data() {
     return {
       jobs: [
-        { title: 'Snickare', imgUrl: '../../public/icons/carpenter.png' },
-        { title: 'Elektriker', imgUrl: '../../public/icons/electrician.png' },
-        { title: 'Rörmockare', imgUrl: '../../public/icons/plumber.png' },
-        { title: 'Målare', imgUrl: '../../public/icons/painter.png' },
-        { title: 'Murare', imgUrl: '../../public/icons/mason.png' },
+        { title: 'Snickare', imgUrl: '/icons/carpenter.png' },
+        { title: 'Elektriker', imgUrl: '/icons/electrician.png' },
+        { title: 'Rörmockare', imgUrl: '/icons/plumber.png' },
+        { title: 'Målare', imgUrl: '/icons/painter.png' },
+        { title: 'Murare', imgUrl: '/icons/mason.png' },
       ],
       availabilityInfo: [
-        { title: 'Tillgänglig', imgUrl: '../../public/icons/bookingsIcons/tillgänglig.png' },
-        { title: 'Frånvaro', imgUrl: '../../public/icons/bookingsIcons/absent.png' },
-        { title: '100% bokad', imgUrl: '../../public/icons/bookingsIcons/fullyBooked.png' },
-        { title: '50% bokad', imgUrl: '../../public/icons/bookingsIcons/halfBooked.png' },
+        { title: 'Tillgänglig', imgUrl: '/icons/bookingsIcons/tillgänglig.png' },
+        { title: 'Frånvaro', imgUrl: '/icons/bookingsIcons/absent.png' },
+        { title: '100% bokad', imgUrl: '/icons/bookingsIcons/fullyBooked.png' },
+        { title: '50% bokad', imgUrl: '/icons/bookingsIcons/halfBooked.png' },
         {
           title: '100% preliminärt bokad',
-          imgUrl: '../../public/icons/bookingsIcons/preliminaryBooked.png',
+          imgUrl: '/icons/bookingsIcons/preliminaryBooked.png',
         },
         {
           title: '50% preliminärt bokad',
-          imgUrl: '../../public/icons/bookingsIcons/halfPreliminaryBooked.png',
+          imgUrl: '/icons/bookingsIcons/halfPreliminaryBooked.png',
         },
       ],
     }
