@@ -67,6 +67,7 @@ td {
   padding: 4px;
   border: 1px solid #ddd;
   text-align: center;
+  font-size: .9rem;
 }
 
 .weekend {

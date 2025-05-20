@@ -152,6 +152,7 @@ th {
   top: 0;
   text-align: left;
   padding-left: 15px;
+  font-size: .7rem;
 }
 
 .table-row {
